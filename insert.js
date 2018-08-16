@@ -8,6 +8,8 @@ var express=require('express');
 
 var app=express();
 
+//i would comment previous query before executing new one
+
 mongo.connect(url,function(err,db)
 {
 	if(err) throw err;
@@ -24,7 +26,7 @@ mongo.connect(url,function(err,db)
 
 
 
-	/*dbo.collection("customers").insertMany(muobj,function(err,res)
+	dbo.collection("customers").insertMany(muobj,function(err,res)
 	{
 		if(err) throw err;
 
@@ -107,23 +109,7 @@ dbo.collection("customers").updateMany(myquery,newvalues,function(err,res)
 	db.close();
 });
 
-*/
 
-dbo.collection('orders').aggregate(
-	[
-	{$lookup:
-		{
-			from:'product',
-			localField:'id',
-
-
-		}
-
-
-	}
-
-
-	])
 
 
 });
